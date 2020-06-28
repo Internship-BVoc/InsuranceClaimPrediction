@@ -1,7 +1,0 @@
-1. Do feature Engg again , handle outliers accordingly based on bi-varia plots (Outlier)
-2. Imputation (Missing Values) - Try both with Gender imputed as(X or Y) and gender removed in modeling process
-3. OHE & Label Encode
-4. Models - Logistic & Decision & Random Forest - Optimize hyperparameter tuning (Gridsearch , or manual observation)
-5. Obtain Accuracy , Precision ,Recall , AUROC
-
-

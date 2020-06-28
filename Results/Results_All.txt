@@ -1,0 +1,397 @@
+===========================================================================================
+************************************* DECISION TREE ***************************************
+===========================================================================================
+Case 1 : Imputing missing value in 'Gender'
+
+	(i)(a) : Label Encoding without hyperparameter tuning
+
+		Confusion Matrix       : 
+		 [[15116   241]
+		 [  218    11]]
+		Accuracy of Model      :  0.9705504940331067
+		Precision of Model     :  0.04365079365079365
+		Recall of Model        :  0.048034934497816595
+		F1 Score of Model      :  0.04573804573804574
+		ROC_AUC score of Model :  0.5161708826295165
+		
+	(i)(b) : One Hot Encoding without hyperparameter tuning
+
+		Confusion Matrix       : 
+		 [[15119   238]
+		 [  213    16]]
+		Accuracy of Model      :  0.9710637751828564
+		Precision of Model     :  0.06299212598425197
+		Recall of Model        :  0.06986899563318777
+		F1 Score of Model      :  0.06625258799171842
+		ROC_AUC score of Model :  0.5271855885244143
+		
+	(ii)(a): Label Encoding with hyperparameter tuning
+
+		DecisionTreeClassifier(ccp_alpha=0.0, class_weight='balanced', criterion='gini',
+							   max_depth=100, max_features=5, max_leaf_nodes=2000,
+							   min_impurity_decrease=0.0, min_impurity_split=None,
+							   min_samples_leaf=1, min_samples_split=2,
+							   min_weight_fraction_leaf=0.0, presort='deprecated',
+							   random_state=21, splitter='best')
+		Confusion Matrix       : 
+		 [[15068   289]
+		 [  209    20]]
+		Accuracy of Model      :  0.9680482484280765
+		Precision of Model     :  0.06472491909385113
+		Recall of Model        :  0.08733624454148471
+		F1 Score of Model      :  0.07434944237918216
+		ROC_AUC score of Model :  0.534258732415953
+
+	(ii)(b): One Hot Encoding with hyperparameter tuning
+
+		DecisionTreeClassifier(ccp_alpha=0.0, class_weight='balanced', criterion='gini',
+							   max_depth=50, max_features=20, max_leaf_nodes=800,
+							   min_impurity_decrease=0.0, min_impurity_split=None,
+							   min_samples_leaf=1, min_samples_split=6,
+							   min_weight_fraction_leaf=0.0, presort='deprecated',
+							   random_state=21, splitter='best')
+		Confusion Matrix       : 
+		 [[14010  1347]
+		 [  135    94]]
+		Accuracy of Model      :  0.9049146670088541
+		Precision of Model     :  0.0652324774462179
+		Recall of Model        :  0.4104803493449782
+		F1 Score of Model      :  0.1125748502994012
+		ROC_AUC score of Model :  0.6613839527541456
+
+Case 2 : Imputing missing value in 'Gender'
+
+	(i)(a) : Label Encoding without hyperparameter tuning
+
+		Confusion Matrix       : 
+		 [[15121   236]
+		 [  214    15]]
+		Accuracy of Model      :  0.9711279353265752
+		Precision of Model     :  0.05976095617529881
+		Recall of Model        :  0.06550218340611354
+		F1 Score of Model      :  0.06250000000000001
+		ROC_AUC score of Model :  0.5250672992956855
+		
+	(i)(b) : One Hot Encoding without hyperparameter tuning
+
+		Confusion Matrix       : 
+		 [[15107   250]
+		 [  214    15]]
+		Accuracy of Model      :  0.970229693314513
+		Precision of Model     :  0.05660377358490566
+		Recall of Model        :  0.06550218340611354
+		F1 Score of Model      :  0.06072874493927125
+		ROC_AUC score of Model :  0.5246114811020279
+		
+	(ii)(a): Label Encoding with hyperparameter tuning
+
+		DecisionTreeClassifier(ccp_alpha=0.0, class_weight='balanced',
+							   criterion='entropy', max_depth=100, max_features=8,
+							   max_leaf_nodes=1300, min_impurity_decrease=0.0,
+							   min_impurity_split=None, min_samples_leaf=1,
+							   min_samples_split=2, min_weight_fraction_leaf=0.0,
+							   presort='deprecated', random_state=21, splitter='best')
+		Confusion Matrix       : 
+		 [[14826   531]
+		 [  198    31]]
+		Accuracy of Model      :  0.9532272552290517
+		Precision of Model     :  0.05516014234875445
+		Recall of Model        :  0.13537117903930132
+		F1 Score of Model      :  0.07838179519595449
+		ROC_AUC score of Model :  0.5503970566030654
+
+	(ii)(b): One Hot Encoding with hyperparameter tuning
+
+		DecisionTreeClassifier(ccp_alpha=0.0, class_weight='balanced', criterion='gini',
+							   max_depth=100, max_features=5, max_leaf_nodes=2000,
+							   min_impurity_decrease=0.0, min_impurity_split=None,
+							   min_samples_leaf=1, min_samples_split=2,
+							   min_weight_fraction_leaf=0.0, presort='deprecated',
+							   random_state=21, splitter='best')
+		Confusion Matrix       : 
+		 [[14663   694]
+		 [  165    64]]
+		Accuracy of Model      :  0.9448864365456179
+		Precision of Model     :  0.08443271767810026
+		Recall of Model        :  0.2794759825327511
+		F1 Score of Model      :  0.12968591691995948
+		ROC_AUC score of Model :  0.6171424322379194
+
+
+-------------------------------------------------------------------------------------------
+using hyperparameter tuning on OHE and LE both increases the overall performance.
+
+on comparing with and without gender column : 
+	i. while using OHE the results for with gender (imputing the values) was better 
+	ii. but while using LE the results without gender (droping the column) was better 
+on comparing OHE with LE :
+	In both cases using OHE gave better peroformance than using LE.
+-------------------------------------------------------------------------------------------
+
+===========================================================================================
+************************************* RANDOM FOREST ***************************************
+===========================================================================================
+
+Case 1 : Imputing missing value in 'Gender'
+
+	(i)(a) : Label Encoding without hyperparameter tuning
+
+		-> Accuracy - 98%
+		-> Precison - 6%
+		-> Recall - 1%
+		-> F1 Score - 2%
+		-> AUROC Score - 50
+		
+	(i)(b) : One Hot Encoding without hyperparameter tuning
+
+		-> Accuracy - 98%
+		-> Precison - 5%
+		-> Recall - 1%
+		-> F1 Score - 2%
+		-> AUROC Score - 50
+		
+	(ii)(a): Label Encoding with hyperparameter tuning
+
+		Parameters Given - (bootstrap=True, ccp_alpha=0.0, class_weight='balanced',
+							   criterion='gini', max_depth=30, max_features='auto',
+							   max_leaf_nodes=50, max_samples=None,
+							   min_impurity_decrease=0.0, min_impurity_split=None,
+							   min_samples_leaf=1, min_samples_split=3,
+							   min_weight_fraction_leaf=0.0, n_estimators=100,
+							   n_jobs=None, oob_score=False, random_state=None,
+							   verbose=0, warm_start=False)
+
+		-> Accuracy - 83%
+		-> Precison - 5%
+		-> Recall - 68%
+		-> F1 Score - 10%
+		-> AUROC Score - 75
+
+	(ii)(b): One Hot Encoding with hyperparameter tuning
+
+		Parameters Given - (bootstrap=True, ccp_alpha=0.0, class_weight='balanced',
+							   criterion='gini', max_depth=50, max_features='auto',
+							   max_leaf_nodes=50, max_samples=None,
+							   min_impurity_decrease=0.0, min_impurity_split=None,
+							   min_samples_leaf=1, min_samples_split=4,
+							   min_weight_fraction_leaf=0.0, n_estimators=100,
+							   n_jobs=None, oob_score=False, random_state=None,
+							   verbose=0, warm_start=False)
+
+		-> Accuracy - 85%
+		-> Precison - 6%
+		-> Recall - 65%
+		-> F1 Score - 11%
+		-> AUROC Score - 75
+
+Case 2 : Imputing missing value in 'Gender'
+
+	(i)(a) : Label Encoding without hyperparameter tuning
+
+		-> Accuracy - 98%
+		-> Precison - 0%
+		-> Recall - 0%
+		-> F1 Score - 0%
+		-> AUROC Score - 50
+
+		
+	(i)(b) : One Hot Encoding without hyperparameter tuning
+
+		-> Accuracy - 98%
+		-> Precison - 0%
+		-> Recall - 0%
+		-> F1 Score - 0%
+		-> AUROC Score - 50
+		
+	(ii)(a): Label Encoding with hyperparameter tuning
+
+		Parameters Given - (bootstrap=True, ccp_alpha=0.0, class_weight='balanced',
+							   criterion='gini', max_depth=30, max_features='auto',
+							   max_leaf_nodes=50, max_samples=None,
+							   min_impurity_decrease=0.0, min_impurity_split=None,
+							   min_samples_leaf=1, min_samples_split=3,
+							   min_weight_fraction_leaf=0.0, n_estimators=100,
+							   n_jobs=None, oob_score=False, random_state=None,
+							   verbose=0, warm_start=False)
+
+		-> Accuracy - 83%
+		-> Precison - 5%
+		-> Recall - 66%
+		-> F1 Score - 10%
+		-> AUROC Score - 75
+
+
+	(ii)(b): One Hot Encoding with hyperparameter tuning
+
+		Parameters Given - (bootstrap=True, ccp_alpha=0.0, class_weight='balanced',
+							   criterion='gini', max_depth=50, max_features='auto',
+							   max_leaf_nodes=50, max_samples=None,
+							   min_impurity_decrease=0.0, min_impurity_split=None,
+							   min_samples_leaf=1, min_samples_split=4,
+							   min_weight_fraction_leaf=0.0, n_estimators=100,
+							   n_jobs=None, oob_score=False, random_state=None,
+							   verbose=0, warm_start=False)
+
+		-> Accuracy - 84%
+		-> Precison - 6%
+		-> Recall - 66%
+		-> F1 Score - 11%
+		-> AUROC Score - 75
+
+
+--------------------------------------------------------------------------------------------
+Case1:-  In the case of gender being imputted with dummy value(X), the performance of the 
+model is relatively low in both label & one hot encoding before using gridsearchCv but 
+after tunning the parameters using gridsearchCv,our model performance begins to improve
+upto some extent & we get better results.
+
+Case2:-  In the case of gender being removed from the dataset, we can see that the 
+performance of the model is Zero as precision, recall & F1 score is 0% in both label & one
+hot encoding before using gridsearchCv but again after tunning the parameters using 
+gridsearchCv, our model performance begins to improve & it gives us the same result as we 
+got in Case 1 after tunning the parameters.
+
+Conclusion:-
+
+- If we looking at the dataset with the gender's point of view, there is no need to remove
+  the column 'Gender' from the dataset as we can see, it leads to Zero performance of model
+  before tunning the parameters.
+
+- Rather, if we want to remove gender from our dataset then we must keep in mind to tune 
+  our parameters since it is the only way to keep our model performance better.
+
+- From my point of view, there is no need to remove gender & process towards class imbalance
+  problem with gender being imputted with some dummy value X.
+--------------------------------------------------------------------------------------------
+
+===========================================================================================
+********************************** LOGISTIC REGRESSION ************************************
+===========================================================================================
+Case 1 : Imputing missing value in 'Gender'
+
+	(i)(a) : Label Encoding without hyperparameter tuning
+
+		Confusion Matrix
+		[[15600     0]
+		 [  232     0]]
+		Accuracy=  0.9853461344113188= 98%
+		Precision=  0.0
+		Recall=  0.0
+		F1 Score=  0.0
+		ROC-AUC Score= 0.5= 50%
+		
+	(i)(b) : One Hot Encoding without hyperparameter tuning
+
+		Confusion Matrix
+		[[15600     0]
+		 [  232     0]]
+		Accuracy=  0.9853461344113188= 98%
+		Precision=  0.0
+		Recall=  0.0
+		F1 Score=  0.0
+		ROC-AUC Score=  0.5= 50%
+				
+	(ii)(a): Label Encoding with hyperparameter tuning
+
+			   Parameters- (C=1.0, class_weight='balanced', dual=False,
+						   fit_intercept=True, intercept_scaling=1, l1_ratio=None,
+						   max_iter=100, multi_class='multinomial', n_jobs=None,
+						   penalty='l2', random_state=2, solver='newton-cg', tol=0.0001,
+						   verbose=0, warm_start=False)
+		Confusion Matrix
+		[[12080  3520]
+		 [   59   173]]
+		Accuracy=  0.7739388580090955= 77%
+		Precision=  0.04684538315732467= 4%
+		Recall=  0.7456896551724138= 74%
+		F1 Score=  0.08815286624203822= 8%
+		ROC-AUC Score= 0.7600243147656941= 76%
+
+	(ii)(b): One Hot Encoding with hyperparameter tuning
+
+			   Parameters- (C=1.0, class_weight='balanced', dual=False,
+						   fit_intercept=True, intercept_scaling=1, l1_ratio=None,
+						   max_iter=100, multi_class='multinomial', n_jobs=None,
+						   penalty='l2', random_state=2, solver='newton-cg', tol=0.0001,
+						   verbose=0, warm_start=False)
+		Confusion Matrix
+		[[12268  3332]
+		 [   51   181]]
+		Accuracy=  0.7863188479029813= 78%
+		Precision=  0.051522914887560486= 5%
+		Recall=  0.7801724137931034= 78%
+		F1 Score=  0.0966622162883845= 9%
+		ROC-AUC Score= 0.7832913351016799= 78%
+
+Case 2 : Imputing missing value in 'Gender'
+
+	(i)(a) : Label Encoding without hyperparameter tuning
+
+		Confusion Matrix
+		[[15600     0]
+		 [  232     0]]
+		Accuracy=  0.9853461344113188= 98%
+		Precision=  0.0
+		Recall=  0.0
+		F1 Score=  0.0
+		ROC-AUC Score= 0.5= 50%
+		
+	(i)(b) : One Hot Encoding without hyperparameter tuning
+
+		Confusion Matrix
+		[[15600     0]
+		 [  232     0]]
+		Accuracy=  0.9853461344113188= 98%
+		Precision=  0.0
+		Recall=  0.0
+		F1 Score=  0.0
+		ROC-AUC Score= 0.5= 50%
+		
+	(ii)(a): Label Encoding with hyperparameter tuning
+
+			   Parameters- (C=0.5, class_weight='balanced', dual=False,
+						   fit_intercept=True, intercept_scaling=1, l1_ratio=None,
+						   max_iter=60, multi_class='multinomial', n_jobs=None,
+						   penalty='l1', random_state=2, solver='saga', tol=0.0001,
+						   verbose=0, warm_start=False)
+		Confusion Matrix
+		[[12338  3262]
+		 [   66   166]]
+		Accuracy=  0.7897928246589186= 78%
+		Precision=  0.048424737456242706= 4%
+		Recall=  0.7155172413793104= 71%
+		F1 Score=  0.0907103825136612=  9%
+		ROC-AUC Score= 0.7532073386383732= 75%
+
+	(ii)(b): One Hot Encoding with hyperparameter tuning
+
+			   Parameters- (C=0.2, class_weight='balanced', dual=False,
+						   fit_intercept=True, intercept_scaling=1, l1_ratio=None,
+						   max_iter=100, multi_class='auto', n_jobs=None, penalty='l1',
+						   random_state=2, solver='liblinear', tol=0.0001, verbose=0,
+						   warm_start=False)
+		Confusion Matrix
+		[[12521  3079]
+		 [   55   177]]
+		Accuracy=  0.8020464881253159= 80%
+		Precision=  0.05436117936117936= 5%
+		Recall=  0.7629310344827587= 76%
+		F1 Score=  0.10149082568807338= 10%
+		ROC-AUC Score= 0.7827796198054819= 78%
+
+
+-------------------------------------------------------------------------------------------
+In case of OHE In Dummy Value Imputation In Gender (Case 1)
+	(ii)(b) gives more precision and recall than any other cases 
+			i.e. After Tunning the parameters
+In case of LE In Dummy Value Imputation In Gender (Case 1)
+	(i)(b) gives more precision and recall than any other cases 
+			i.e. After Tunning the parameters
+
+In case of OHE In Removal Of Gender Column (Case 2)
+	(ii)(b) gives more precision and recall than any other cases 
+			i.e. After Tunning the parameters
+In case of LE In Dummy Value Imputation In Gender (Case 2)
+	(i)(b) gives more precision and recall than any other cases 
+			i.e. After Tunning the parameters
+-------------------------------------------------------------------------------------------
